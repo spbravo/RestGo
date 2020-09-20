@@ -34,7 +34,7 @@ func main() {
 		req.Header.Add("cache-control", "no-cache")
 		res, _ := http.DefaultClient.Do(req)
 	
-		defer res.Body.Close()
+		//defer res.Body.Close()
 		body, _ := ioutil.ReadAll(res.Body)
 		
 		var urlDato Data
@@ -43,9 +43,9 @@ func main() {
 			fmt.Println("Estoy en el error %v \n", err)
 		}
 			fmt.Println(string(body))
-			fmt.Println("Struct is:", urlDato) 
+			 
 	    //data := dataFromJson(string(body))
-			fmt.Printf("url de datos %s \n", string(urlDato.Datos))
+			
 		resultado :=  contentFromServer(urlDato.Datos)
 			fmt.Println(resultado)
 /*
