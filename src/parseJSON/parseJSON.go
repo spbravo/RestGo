@@ -34,7 +34,7 @@ func main() {
 		req.Header.Add("cache-control", "no-cache")
 		res, _ := http.DefaultClient.Do(req)
 	
-		//defer res.Body.Close()
+		defer res.Body.Close()
 		body, _ := ioutil.ReadAll(res.Body)
 		
 		var urlDato Data
